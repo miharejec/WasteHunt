@@ -85,6 +85,16 @@
 		var optionsShown = true;
 		var user = "James Bond";
 		var dbFiles = ["Images/trashbag1.jpg", "Images/trashbag2.jpg"];
+		var dbFiles = [
+			{
+				user: "Donald Trump",
+				imageSrc: "Images/trashbag1.jpg"
+			},
+			{
+				user: "Borut Pahor",
+				imageSrc: "Images/trashbag2.jpg"
+			}
+		];
 			
 		function uploadPhoto() {
 			$("#imageUploader").click();
@@ -105,7 +115,7 @@
 				}
 				
 				var name = document.createElement("P");
-				name.innerHTML = user;
+				name.innerHTML = dbFiles[i].user;
 				
 				var image = document.createElement("IMG");
 				image.setAttribute("id", "photo" + bagId);
@@ -115,7 +125,7 @@
 				document.getElementById(bagId).appendChild(name);
 				document.getElementById(bagId).appendChild(image);
 				
-				document.getElementById("photo" + bagId).src = dbFiles[i];
+				document.getElementById("photo" + bagId).src = dbFiles[i].imageSrc;
 			}
 			
 			updateNumberOfBags();
