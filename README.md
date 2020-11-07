@@ -1,1 +1,1 @@
-# ecoApp
+# EkoApp

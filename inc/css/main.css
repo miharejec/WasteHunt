@@ -1,0 +1,159 @@
+.profile-image {
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+    margin-left: 10%;
+}
+
+.profile-header {
+    padding: 50px 0px 50px 0px;
+    height: 25%;
+    padding-top: 10%;
+}
+
+.content-header {
+    padding: 50px 0px 50px 0px;
+    height: 25%;
+    padding-top: 5%;
+}
+
+.header1 {
+    font-size: 8em;
+    color: #F6AE2D;
+    line-height: 1.2em;
+    font-weight: bold;
+}
+
+.header2 {
+    font-size: 4.5em;
+    color: #F6AE2D;
+    line-height: 1.2em;
+    font-weight: bold;
+}
+
+.header3 {
+    font-size: 3em;
+    color: #F6AE2D;
+    line-height: 1.2em;
+    font-weight: bold;
+}
+
+.grayedOut {
+    font-size: 3em;
+    color: #FEFAE0;
+    line-height: 1.2em;
+    font-weight: 500;
+}
+
+.grayedOut-minor {
+    font-size: 2em;
+    color: #FEFAE0;
+    line-height: 1.2em;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.center-ver-hor {
+    margin-top: auto; 
+    margin-bottom: auto;
+}
+
+.green-background {
+    height: 30%;
+    width: 100%;
+    background-color: #758E4F;
+}
+
+.content-card {
+    background-color: #FEFAE0;
+    border-radius: 50px;
+    top: 20%;
+    position: absolute;
+    width: 100%;
+}
+
+.content-card-higher {
+    background-color: #FEFAE0;
+    border-radius: 50px;
+    top: 10%;
+    position: absolute;
+    width: 100%;
+    height: 90%;
+}
+
+.list-item {
+    background-color: #758E4F;
+    border-radius: 25px;
+    width: 85%;
+    box-shadow: -10px 10px 5px #596D3C;
+    margin: 7.5% auto;
+    min-height: 150px;
+}
+
+.details-button {
+    background-color: #86BBD8;
+    color: #FEFAE0;
+    display: block;
+    border: none;
+    min-width: 75%;
+    min-height: 85%;
+    font-size: 2.5em;
+    font-weight: bold;
+    float: right;
+    border-radius: 25px;
+}
+
+.join-button {
+    background-color: #F6AE2D;
+    color: #FEFAE0;
+    display: block;
+    border: none;
+    min-width: 50%;
+    min-height: 75%;
+    font-size: 2.5em;
+    font-weight: bold;
+    border-radius: 25px;
+    float: right;
+}
+
+hr.green-break {
+    border: 5px solid #758E4F;
+}
+
+.profile-icon {
+    font-size: 8em;
+    color: #758E4F;
+}
+
+.center-icons {
+    text-align: center;
+}
+
+.bottom-toolbar {
+    background-color: #758E4F;
+    border-radius: 50px 50px 0px 0px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    min-height: 7.5%;
+    padding-top: 2.5%;
+}
+
+.toolbar-icon {
+    font-size: 5em;
+    color: #FEFAE0;
+}
+
+.custom-row {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.toolbar-button {
+    border: none;
+    background-color: #758E4F;
+}
