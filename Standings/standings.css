@@ -1,0 +1,44 @@
+html, body {
+    height:100%;
+}
+
+.mainContainer {
+    height: 100%;
+}
+
+.upperContainer {
+    height: 15%;
+    background-color: #758e4f;
+}
+
+.middleContainer {
+    height: 75%;
+}
+
+.bottomContainer {
+    height: 10%;
+}
+
+.participantsViewDiv {
+    text-align: right;
+    position: absolute;
+    bottom: -78px;
+    right: 28px;
+}
+
+.headerColor {
+    color: #F6AE2D;
+}
+
+.participantsViewColor {
+    color: white;
+}
+
+.list-group-item {
+    margin-top: 17px;
+    border-radius: 11px;
+}
+
+.greenClass {
+    background-color: #758e4f;
+}
