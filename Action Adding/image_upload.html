@@ -84,7 +84,6 @@
 			
 		var optionsShown = true;
 		var user = "James Bond";
-		var dbFiles = ["Images/trashbag1.jpg", "Images/trashbag2.jpg"];
 		var dbFiles = [
 			{
 				user: "Donald Trump",
@@ -119,7 +118,8 @@
 				
 				var image = document.createElement("IMG");
 				image.setAttribute("id", "photo" + bagId);
-				image.setAttribute("width", "80%");
+				image.setAttribute("width", "100%");
+				image.setAttribute("style", "border-radius:25px");
 				
 				document.getElementById("bags").appendChild(bag);
 				document.getElementById(bagId).appendChild(name);
@@ -147,7 +147,8 @@
 			
 			var image = document.createElement("IMG");
 			image.setAttribute("id", "photo" + bagId);
-			image.setAttribute("width", "80%");
+			image.setAttribute("width", "100%");
+			image.setAttribute("style", "border-radius:25px");
 
 			document.getElementById("bags").appendChild(bag);
 			document.getElementById(bagId).appendChild(name);
