@@ -1,0 +1,65 @@
+.mainContainer {
+	height: 100%;
+}
+
+.upperContainer {
+	background-color: #758E4F;
+	color: #F6AE2D;
+	font-size: 40px;
+	height: 15%;
+}
+
+.middleContainer {
+	height: 75%;
+	margin-top: 10px;
+}
+
+.bottomContainer {
+	height: 10%;
+}
+
+.bag {
+	background-color: #758E4F;
+	width: 50%;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	border-radius: 25px;
+}
+
+.add_bag_button {
+	margin-left: 20px;
+}
+
+.option_button {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	background-color: #758E4F;
+	position: fixed;
+	bottom: 160px;
+}
+
+h1 {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 50px;
+	color: #F6AE2D;
+}
+
+p {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 30px;
+	color: #FFFFFF;
+}
+
+body {
+	background-color: #FEFAE0;
+}
+
+html, body {
+    height: 100%;
+}
+
+h1 {
+	font-size: 80px !important;
+}
