@@ -111,15 +111,21 @@
 				bag.setAttribute("class", "bag");
 				bag.setAttribute("style", "opacity:0.25;");
 				
+				var userIcon = document.createElement("IMG");
+				userIcon.setAttribute("class", "fa fa-trophy fa-20x");
+				userIcon.setAttribute("src", "Images/user_photo.png");
+				
 				var name = document.createElement("P");
-				name.innerHTML = dbFiles[i].user;
+				name.setAttribute("style", "display: inline;vertical-align: middle;");
+				name.innerHTML = "    " + dbFiles[i].user;
 				
 				var image = document.createElement("IMG");
 				image.setAttribute("id", "photo" + bagId);
 				image.setAttribute("width", "100%");
-				image.setAttribute("style", "border-radius:25px;");
+				image.setAttribute("style", "border-radius:25px;padding-top: 10px;");
 				
 				document.getElementById("bags").appendChild(bag);
+				document.getElementById(bagId).appendChild(userIcon);
 				document.getElementById(bagId).appendChild(name);
 				document.getElementById(bagId).appendChild(image);
 				
