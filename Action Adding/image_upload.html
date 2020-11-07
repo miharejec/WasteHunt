@@ -22,10 +22,10 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-1">
-						<img src="Images/trash_bag.png" width="115px">
+						<img src="Images/trash_bag.png" width="100px">
 					</div>
 					<div class="col-sm-1">
-						<h1 style="color: #FFFFFF;">&nbsp;&nbsp;10</h1>
+						<h1 id="numberOfBags" style="color: #FFFFFF; white-space:pre;"></h1>
 					</div>
 					<div class="col-sm-10"></div>
 				</div>
@@ -83,7 +83,8 @@
 		<script>
 			
 		var optionsShown = true;
-		var dbFiles = [];
+		var user = "James Bond";
+		var dbFiles = ["Images/trashbag1.jpg", "Images/trashbag2.jpg"];
 			
 		function uploadPhoto() {
 			$("#imageUploader").click();
@@ -93,16 +94,31 @@
 			//TODO: get bags from DB
 			
 			for (var i = 0; i < dbFiles.length; i++) {
+				var bagId = i;
+				bagId = bagId.toString();
+				
+				var bag = document.createElement("DIV");
+				bag.setAttribute("id", bagId);
+				bag.setAttribute("class", "bag");
+				if ((i + 1) % 2 === 0) {
+					bag.setAttribute("style", "margin-left:50%");
+				}
+				
 				var name = document.createElement("P");
+				name.innerHTML = user;
+				
 				var image = document.createElement("IMG");
-				image.setAttribute("id", i);
-				name.innerHTML = "Janko";
-
-				document.getElementById("bags").appendChild(name);
-				document.getElementById("bags").appendChild(image);
-
-				document.getElementById(i).src = URL.createObjectURL(dbFiles[i]);
+				image.setAttribute("id", "photo" + bagId);
+				image.setAttribute("width", "80%");
+				
+				document.getElementById("bags").appendChild(bag);
+				document.getElementById(bagId).appendChild(name);
+				document.getElementById(bagId).appendChild(image);
+				
+				document.getElementById("photo" + bagId).src = dbFiles[i];
 			}
+			
+			updateNumberOfBags();
 		}
 			
 		function updateBags() {
@@ -117,7 +133,7 @@
 			}
 			
 			var name = document.createElement("P");
-			name.innerHTML = "Janko Bananko"; // TODO: get user's name
+			name.innerHTML = "James Bond"; // TODO: get user's name
 			
 			var image = document.createElement("IMG");
 			image.setAttribute("id", "photo" + bagId);
@@ -128,6 +144,8 @@
 			document.getElementById(bagId).appendChild(image);
 
 			document.getElementById("photo" + bagId).src = URL.createObjectURL(dbFiles[dbFiles.length-1]);
+			
+			updateNumberOfBags();
 		}
 			
 		function checkPhotos() {
@@ -159,13 +177,17 @@
 		}
 		
 		function setOptionsButtonsPositions() {
-			$("#take_photo_button").offset({left: 500});
-			$("#upload_photo_button").offset({left: 650});
+			$("#take_photo_button").offset({left: 490});
+			$("#upload_photo_button").offset({left: 633});
 		}
 
 		function hidePhotoUploader() {
 			var x = document.getElementById("imageUploader");
 			x.style.display = "none";
+		}
+			
+		function updateNumberOfBags() {
+			$("#numberOfBags").text(" " + dbFiles.length.toString());
 		}
 		
 		// Init function, gets called when document is ready
@@ -173,6 +195,7 @@
 			setOptionsButtonsPositions();
 			hideOptionsButtons();
 			hidePhotoUploader();
+			uploadBags();
 		});
 			
 		</script> 
