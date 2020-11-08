@@ -36,12 +36,12 @@
                             </div>
                             <div class="col-xs-4">
                                 <span>Benjamin</span>
-                                </br>
+                                <br>
                                 <span>49 točk</span>
                             </div>
                             <div class="col-xs-6">
-                                <button><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                <button><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                <img src="bag_added.png">
+                                <img src="bag_added.png">
                             </div>
                         </div>
                 </li>
@@ -52,17 +52,15 @@
                         </div>
                         <div class="col-xs-4">
                             <span>Benjamin</span>
-                            </br>
+                            <br>
                             <span>49 točk</span>
                         </div>
                         <div class="col-xs-6">
-                            <button id="popover" class="smh1" rel="popover" data-content="" title="Gathered litter">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
+                            <img id="popover" rel="popover" src="bag_not_added.png">
 
-                            <button><i class="fa fa-trash" aria-hidden="true"></i></button>
-                            <button><i class="fa fa-trash" aria-hidden="true"></i></button>
-                            <button><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            <img src="bag_added.png">
+                            <img src="bag_added.png">
+							<img src="bag_added.png">
                         </div>
                     </div>
                 </li>
@@ -107,21 +105,19 @@
 
     <script>
         $(document).ready(function() {
-            var image = '<div><img src="https://3.imimg.com/data3/MB/RC/GLADMIN-85152/plastic-trash-bag-125x125.jpg"></div><div class="checkboxDiv" id="OKButton"><i class="fa fa-check fa-2x" aria-hidden="true"></i><i class="fa fa-window-close-o fa-2x NOButton" aria-hidden="true"></i></div>';
+            var image = '<div><img src="https://3.imimg.com/data3/MB/RC/GLADMIN-85152/plastic-trash-bag-125x125.jpg"></div><div id="OKButton" class="checkboxDiv"><i class="fa fa-check fa-2x" aria-hidden="true"></i><i class="fa fa-window-close-o fa-2x NOButton" aria-hidden="true"></i></div>';
             $('#popover').popover({
                 placement: 'bottom',
                 content: image,
                 html: true
             });
-
             
         });
         $("#OKButton").on({
-                click: function(){
-                    console.log("osdofsf");
-                    $(this).css("background-color", "gray");
-                },  
-            });
+			click: function(){
+				$("#popover").attr("src", "bag_added.png");
+			},  
+		});
     </script>
 </body>
 </html>
