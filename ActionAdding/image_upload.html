@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="image_upload_styles.css">
+		<link rel='stylesheet' type='text/css' media='screen' href='../inc/css/main.css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+		
+		<div class="container-fullwidth mainContainer">
+			<div class="container-fluid upperContainer">
+				<div class="row">
+					<div class="col-sm-12">
+						<h1><b>Cleaning Ljubljana</b></h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-1">
+						<img src="Images/trash_bag.png" width="100px">
+					</div>
+					<div class="col-sm-1">
+						<h1 id="numberOfBags" style="color: #FFFFFF; white-space:pre;"></h1>
+					</div>
+					<div class="col-sm-10"></div>
+				</div>
+			</div>
+			<div class="container-fluid middleContainer">
+				<input type="file" id="imageUploader" accept="image/*" onchange="checkPhotos(event)" hidden>
+				<div id="bags"></div>
+				<div class="row">
+					<div class="take_photo_wrapper">
+						<button id="take_photo_button" class="option_button"><img src="Images/take_photo.png">
+						</button>
+					</div>
+
+					<div class="upload_photo_wrapper">
+						<button id="upload_photo_button" class="option_button" onclick="uploadPhoto();"><img src="Images/upload_photo.png">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="container-fullwidth bottomToolbar">
+				<div class="bottom-toolbar">
+					<div class="custom-row">
+						<!-- first icon -->
+						<div class="col center-icons">
+							<button id="user-profile-button" class="toolbar-button" onclick="window.location.href='../userProfilce.php'">
+								<span class="toolbar-icon"><i class="fa fa-user fa-10x" aria-hidden="true"></i></span>
+							</button>
+						</div>
+
+						<!-- second icon -->
+						<div class="col center-icons">
+							<button id="all-actions-button" class="toolbar-button" onclick="window.location.href='../actionOverview.php'">
+								<span class="toolbar-icon"><i class="fa fa-list-ul fa-10x" aria-hidden="true"></i></span>
+							</button>
+						</div>
+
+						<!-- third icon -->
+						<div class="col center-icons">
+							<button id="new-action-button" class="toolbar-button" onclick="handleAddBagButtonClick(); goOnOrganiserOverview();">
+								<span class="toolbar-icon"><i class="fa fa-plus fa-10x" aria-hidden="true"></i></span>
+							</button>
+						</div>
+
+						<!-- fourth icon -->
+						<div class="col center-icons">
+							<button id="leaderboards-button" class="toolbar-button" onclick="window.location.href='../Standings/standings.php'">
+								<span class="toolbar-icon"><i class="fa fa-trophy fa-10x" aria-hidden="true"></i></span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			
+		var optionsShown = true;
+		var user = "Borut";
+		var dbFiles = [
+			{
+				user: "Janez",
+				imageSrc: "Images/trashbag1.jpg"
+			},
+			{
+				user: "Eva",
+				imageSrc: "Images/trashbag2.jpg"
+			}
+		];
+			
+		function uploadPhoto() {
+			$("#imageUploader").click();
+		}
+			
+		function uploadBags() {
+			//TODO: get bags from DB
+			
+			for (var i = 0; i < dbFiles.length; i++) {
+				var bagId = i;
+				bagId = bagId.toString();
+				
+				var bag = document.createElement("DIV");
+				bag.setAttribute("id", bagId);
+				bag.setAttribute("class", "bag");
+				bag.setAttribute("style", "opacity:0.25;");
+				
+				var userIcon = document.createElement("IMG");
+				userIcon.setAttribute("class", "fa fa-trophy fa-20x");
+				userIcon.setAttribute("src", "Images/user_photo.png");
+				
+				var name = document.createElement("P");
+				name.setAttribute("style", "display: inline;vertical-align: middle;");
+				name.innerHTML = "    " + dbFiles[i].user;
+				
+				var image = document.createElement("IMG");
+				image.setAttribute("id", "photo" + bagId);
+				image.setAttribute("width", "100%");
+				image.setAttribute("style", "border-radius:25px;padding-top: 10px;");
+				
+				document.getElementById("bags").appendChild(bag);
+				document.getElementById(bagId).appendChild(userIcon);
+				document.getElementById(bagId).appendChild(name);
+				document.getElementById(bagId).appendChild(image);
+				
+				$("#" + bagId).animate({opacity: 1}, "slow");
+				
+				if ((i + 1) % 2 === 0) {
+					$("#" + bagId).animate({"margin-left": "50%"}, "slow");
+				}
+				
+				document.getElementById("photo" + bagId).src = dbFiles[i].imageSrc;
+			}
+			
+			updateNumberOfBags();
+		}
+			
+		function updateBags() {
+			var bagId = dbFiles.length-1;
+			bagId = bagId.toString();
+			
+			var bag = document.createElement("DIV");
+			bag.setAttribute("id", bagId);
+			bag.setAttribute("class", "bag");
+			if (dbFiles.length % 2 === 0) {
+				bag.setAttribute("style", "margin-left:50%;opacity:0.25;");
+			} else {
+				bag.setAttribute("style", "opacity:0.25;");
+			}
+			
+			var name = document.createElement("P");
+			name.innerHTML = "Borut"; // TODO: get user's name
+			
+			var image = document.createElement("IMG");
+			image.setAttribute("id", "photo" + bagId);
+			image.setAttribute("width", "100%");
+			image.setAttribute("style", "border-radius:25px;");
+
+			document.getElementById("bags").appendChild(bag);
+			document.getElementById(bagId).appendChild(name);
+			document.getElementById(bagId).appendChild(image);
+
+			$("#" + bagId).animate({opacity: 1}, "fast");
+			
+			document.getElementById("photo" + bagId).src = URL.createObjectURL(dbFiles[dbFiles.length-1]);
+			
+			updateNumberOfBags();
+		}
+
+		function goOnOrganiserOverview() {
+			setTimeout(function(){
+				location.href = "../PicturesOverview/picturesOverview.html";
+				}, 8000);
+		}
+			
+		function checkPhotos() {
+			var x = document.getElementById("imageUploader");
+			if ('files' in x && x.files.length > 0) {
+				var file = x.files[0];
+				dbFiles[dbFiles.length] = file;
+				updateBags();
+				hideOptionsButtons();
+				
+				//TODO: add to database
+			}
+		}
+			
+		function handleAddBagButtonClick() {
+			optionsShown ? hideOptionsButtons() : showOptionsButtons();
+		}
+			
+		function showOptionsButtons() {
+			$("#take_photo_button").css("opacity", "0.25");
+			$("#take_photo_button").show();
+			$("#take_photo_button").animate({opacity: 1}, "fast");
+			
+			$("#upload_photo_button").css("opacity", "0.25");
+			$("#upload_photo_button").show();
+			$("#upload_photo_button").animate({opacity: 1}, "fast");
+			optionsShown = !optionsShown;
+		}
+			
+		function hideOptionsButtons() {
+			$("#take_photo_button").hide();
+			$("#upload_photo_button").hide();
+			optionsShown = !optionsShown;
+		}
+		
+		function setOptionsButtonsPositions() {
+			$("#take_photo_button").offset({left: 490});
+			$("#upload_photo_button").offset({left: 633});
+		}
+
+		function hidePhotoUploader() {
+			var x = document.getElementById("imageUploader");
+			x.style.display = "none";
+		}
+			
+		function updateNumberOfBags() {
+			$("#numberOfBags").text(" " + dbFiles.length.toString());
+		}
+		
+		// Init function, gets called when document is ready
+		$(function () {
+			hideOptionsButtons();
+			setOptionsButtonsPositions();
+			hidePhotoUploader();
+			uploadBags();
+		});
+			
+		</script> 
+        
+    </body>
+</html>
