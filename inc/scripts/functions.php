@@ -4,8 +4,7 @@ $con = mysqli_connect("localhost","root","","ekoaplikacija");
 $GLOBALS['con'] = mysqli_connect("localhost","root","","ekoaplikacija");
 
 function getGetUserDataById($userId) {
-    $userId = 1;
-    $result = $GLOBALS['con']->query("SELECT * FROM user WHERE id = 1;");
+    $result = $GLOBALS['con']->query("SELECT * FROM user WHERE id = " . $userId . ";");
     $row = $result->fetch_assoc();
     return $row["username"];
 }

@@ -19,8 +19,8 @@
                         <img class="profile-image" src="./inc/images/profile.png" alt="profile.pic"  />
                     </div>
                     <div class="col center-ver-hor">
-                        <div style="text-align: left;">
-                            <span class="header2"><?= getGetUserDataById(1); ?></span>
+                        <div style="text-align: center;">
+                            <span class="header2"><?= getGetUserDataById(8); ?></span>
                             <p>
                                 <span class="grayedOut">Rang <?= returnRandom(10, 20); ?></span>
                             </p>
@@ -36,7 +36,11 @@
             <div class="content-card">
                 <!-- mesec div -->
                 <?php foreach(getMonths(4) as $key=>$value): ?>
-                        <div class="list-item row">
+                        <?php if(fmod($key, 2) == 0): ?>
+                            <div class="list-item row left-slide">
+                        <?php else: ?>
+                            <div class="list-item row right-slide">
+                        <?php endif; ?>
                             <div class="col" style="padding-left: 5%; padding-top: 2.5%;">
                                 <p>
                                     <span class="header3"><?= $value; ?></span><br/>

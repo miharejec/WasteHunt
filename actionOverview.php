@@ -22,13 +22,14 @@
                 </div>
             </div>
 
-            <?php print_r(getUsersTrashCount(2)); ?>
-
-            <!-- Meseci content -->
+            <!-- Actions content -->
             <div class="content-card-higher">
                 <?php foreach(getActiveActions() as $key=>$value): ?>
-                    <!-- mesec div -->
-                    <div class="list-item row">
+                    <?php if(fmod($key, 2) == 0): ?>
+                        <div class="list-item row left-slide">
+                    <?php else: ?>
+                        <div class="list-item row right-slide">
+                    <?php endif; ?>
                         <div class="col" style="padding-left: 5%; padding-top: 3%;">
                             <p>
                                 <span class="header3"><?= $value["name"] ?></span><br/>
