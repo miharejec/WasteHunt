@@ -90,7 +90,7 @@
 				imageSrc: "Images/trashbag1.jpg"
 			},
 			{
-				user: "Borut Pahor",
+				user: "Jon Jones",
 				imageSrc: "Images/trashbag2.jpg"
 			}
 		];
@@ -190,8 +190,13 @@
 		}
 			
 		function showOptionsButtons() {
+			$("#take_photo_button").css("opacity", "0.25");
 			$("#take_photo_button").show();
+			$("#take_photo_button").animate({opacity: 1}, "fast");
+			
+			$("#upload_photo_button").css("opacity", "0.25");
 			$("#upload_photo_button").show();
+			$("#upload_photo_button").animate({opacity: 1}, "fast");
 			optionsShown = !optionsShown;
 		}
 			
